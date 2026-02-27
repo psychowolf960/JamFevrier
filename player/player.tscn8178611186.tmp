@@ -1,0 +1,283 @@
+[gd_scene load_steps=18 format=3 uid="uid://luy7w0qfph84"]
+
+[ext_resource type="Script" uid="uid://chmo46pkxaexp" path="res://player/player.gd" id="1_oul6g"]
+[ext_resource type="Texture2D" uid="uid://dgh3ul6rjlkgi" path="res://assets/reticles/white_reticle.png" id="2_g1dw6"]
+[ext_resource type="PackedScene" uid="uid://bnvad8jy4rflu" path="res://player/interaction_controller.tscn" id="2_rkbax"]
+[ext_resource type="Texture2D" uid="uid://d1jemmogcuxvf" path="res://assets/reticles/tile_0155.png" id="3_qjkh3"]
+[ext_resource type="Texture2D" uid="uid://bgj2lgeergj4y" path="res://assets/reticles/tile_0156.png" id="4_g6k8r"]
+[ext_resource type="Texture2D" uid="uid://byr22t5vpx7n7" path="res://assets/reticles/use_reticle.png" id="5_2ieo8"]
+[ext_resource type="Shader" uid="uid://bygn8p8ivfrb5" path="res://shaders/note_fade.gdshader" id="5_boad6"]
+[ext_resource type="PackedScene" uid="uid://c0bcshd6w44pb" path="res://player/sanity_controller.tscn" id="6_g6k8r"]
+[ext_resource type="AudioStream" uid="uid://balac254rkql0" path="res://assets/sound_effects/footstep05.ogg" id="8_hg6s5"]
+[ext_resource type="PackedScene" uid="uid://tascqdeiqxem" path="res://player/inventory_controller.tscn" id="9_2ieo8"]
+[ext_resource type="AudioStream" uid="uid://b6cflqkbf4htm" path="res://assets/sound_effects/jump.ogg" id="9_8t03j"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kqu6x"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_oul6g"]
+height = 1.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_qjkh3"]
+radius = 6.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hg6s5"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_g6k8r"]
+lightmap_size_hint = Vector2i(11, 6)
+material = SubResource("StandardMaterial3D_hg6s5")
+radius = 0.3
+height = 0.6
+radial_segments = 4
+rings = 1
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rgyib"]
+shader = ExtResource("5_boad6")
+shader_parameter/rect_width_px = 960.0
+shader_parameter/fade_width_px = 240.0
+shader_parameter/fade_strength = 0.745
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_oul6g")
+
+[node name="StandingCollisionShape" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_kqu6x")
+
+[node name="CrouchingCollisionShape" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("CapsuleShape3D_oul6g")
+
+[node name="StandupCheck" type="RayCast3D" parent="."]
+target_position = Vector3(0, 2, 0)
+
+[node name="InteractableCheck" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractableCheck"]
+shape = SubResource("SphereShape3D_qjkh3")
+
+[node name="Head" type="Node3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
+
+[node name="Eyes" type="Node3D" parent="Head"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0795133, 0.38435, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Head/Eyes"]
+unique_name_in_owner = true
+cull_mask = 524285
+current = true
+fov = 90.0
+
+[node name="InteractionRaycast" type="RayCast3D" parent="Head/Eyes/Camera3D"]
+unique_name_in_owner = true
+target_position = Vector3(0, 0, -3)
+
+[node name="Hand" type="Marker3D" parent="Head/Eyes/Camera3D"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+
+[node name="KeepNoteCameraUpdated" type="RemoteTransform3D" parent="Head/Eyes/Camera3D"]
+remote_path = NodePath("../../../SubViewportContainer/SubViewport/NoteCamera")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="Head"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="Head/SubViewportContainer"]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(1920, 1080)
+render_target_update_mode = 4
+
+[node name="NoteCamera" type="Camera3D" parent="Head/SubViewportContainer/SubViewport"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0795133, 2.18435, 0)
+cull_mask = 2
+fov = 90.0
+
+[node name="NoteHand" type="Marker3D" parent="Head/SubViewportContainer/SubViewport/NoteCamera"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.75, -0.25, -0.75)
+
+[node name="ItemHand" type="Marker3D" parent="Head/SubViewportContainer/SubViewport/NoteCamera"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, -0.25, -0.75)
+
+[node name="LightViewport" type="SubViewport" parent="."]
+unique_name_in_owner = true
+handle_input_locally = false
+size = Vector2i(16, 16)
+render_target_update_mode = 4
+
+[node name="LightDetection" type="Node3D" parent="LightViewport"]
+unique_name_in_owner = true
+
+[node name="LightCamera" type="Camera3D" parent="LightViewport/LightDetection"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 1.73379, 0)
+fov = 20.0
+size = 0.7
+far = 1.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="LightViewport/LightDetection"]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 0, 0.85, 0)
+layers = 524288
+mesh = SubResource("SphereMesh_g6k8r")
+
+[node name="GUI" type="Node" parent="."]
+
+[node name="ReticleLayer" type="CanvasLayer" parent="GUI"]
+layer = 3
+
+[node name="CenterContainer" type="CenterContainer" parent="GUI/ReticleLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DefaultReticle" type="TextureRect" parent="GUI/ReticleLayer/CenterContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("2_g1dw6")
+stretch_mode = 3
+
+[node name="HighlightReticle" type="TextureRect" parent="GUI/ReticleLayer/CenterContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+texture = ExtResource("3_qjkh3")
+stretch_mode = 3
+
+[node name="InteractingReticle" type="TextureRect" parent="GUI/ReticleLayer/CenterContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+texture = ExtResource("4_g6k8r")
+stretch_mode = 3
+
+[node name="UseReticle" type="TextureRect" parent="GUI/ReticleLayer/CenterContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+texture = ExtResource("5_2ieo8")
+stretch_mode = 3
+
+[node name="Debug" type="Label" parent="GUI/ReticleLayer"]
+unique_name_in_owner = true
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Debug2" type="Label" parent="GUI/ReticleLayer"]
+unique_name_in_owner = true
+offset_left = 174.355
+offset_right = 214.35487
+offset_bottom = 23.0
+
+[node name="InteractionText" type="Control" parent="GUI/ReticleLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GUI/ReticleLayer/InteractionText"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = 33.26001
+offset_bottom = 33.26001
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="InteractionTextbox" type="Label" parent="GUI/ReticleLayer/InteractionText/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+text = "Nothing Interesting Happens"
+horizontal_alignment = 1
+
+[node name="NoteLayer" type="CanvasLayer" parent="GUI"]
+layer = 2
+
+[node name="NoteOverlay" type="Control" parent="GUI/NoteLayer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BlackOverlay" type="ColorRect" parent="GUI/NoteLayer/NoteOverlay"]
+material = SubResource("ShaderMaterial_rgyib")
+layout_mode = 0
+offset_left = 960.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 1)
+
+[node name="Control" type="Control" parent="GUI/NoteLayer/NoteOverlay"]
+anchors_preset = 0
+offset_left = 1205.0
+offset_top = 21.0
+offset_right = 1893.0
+offset_bottom = 1062.0
+
+[node name="NoteContent" type="RichTextLabel" parent="GUI/NoteLayer/NoteOverlay/Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -513.5
+offset_bottom = 517.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "test text is typed here
+
+
+test"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="InteractionController" parent="." instance=ExtResource("2_rkbax")]
+unique_name_in_owner = true
+
+[node name="InventoryController" parent="." instance=ExtResource("9_2ieo8")]
+unique_name_in_owner = true
+
+[node name="SanityController" parent="." instance=ExtResource("6_g6k8r")]
+unique_name_in_owner = true
+
+[node name="Audio" type="Node3D" parent="."]
+
+[node name="Footsteps" type="AudioStreamPlayer3D" parent="Audio"]
+unique_name_in_owner = true
+stream = ExtResource("8_hg6s5")
+volume_db = -25.0
+
+[node name="Jump" type="AudioStreamPlayer3D" parent="Audio"]
+unique_name_in_owner = true
+stream = ExtResource("9_8t03j")
+volume_db = -10.0
+unit_size = 3.0

@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://dmn8oyyv5g57r"]
+
+[ext_resource type="Script" uid="uid://br185pppabevm" path="res://scenes/minigames/tank_minigame.gd" id="1_tankgame"]
+[ext_resource type="Texture2D" uid="uid://l1bhp22i45ts" path="res://assets/textures/winows_background.jpg" id="2_y54cd"]
+
+[node name="TankMinigame" type="CanvasLayer" unique_id=67216008]
+layer = 10
+script = ExtResource("1_tankgame")
+
+[node name="Desktop" type="TextureRect" parent="." unique_id=924626711]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -496.0
+offset_top = -7.0
+offset_right = 496.0
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_y54cd")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="BrowserButton" type="Button" parent="Desktop" unique_id=1402464316]
+layout_mode = 0
+offset_left = 630.0
+offset_top = 459.0
+offset_right = 749.0
+offset_bottom = 490.0
+text = "Open Browser"
+
+[node name="Browser" type="TextureRect" parent="." unique_id=1070164994]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+stretch_mode = 5
+
+[node name="BuyButton" type="Button" parent="Browser" unique_id=809676992]
+visible = false
+layout_mode = 0
+text = "Buy Tank ($500)"
+
+[node name="CloseButton" type="Button" parent="Browser" unique_id=1843186213]
+layout_mode = 0
+text = "X"

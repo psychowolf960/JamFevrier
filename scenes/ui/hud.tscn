@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://wcm8fssonn3x"]
+
+[ext_resource type="Script" uid="uid://cccn7bks48ndm" path="res://scenes/ui/hud.gd" id="1_0mwgc"]
+[ext_resource type="Texture2D" uid="uid://dggu2r1xsmv47" path="res://assets/textures/horloge/fond.png" id="2_fond"]
+[ext_resource type="Texture2D" uid="uid://ck26gv2hilvja" path="res://assets/textures/horloge/aiguille.png" id="3_aiguille"]
+[ext_resource type="Texture2D" uid="uid://bbdm8h84nl88x" path="res://assets/textures/horloge/centre.png" id="4_centre"]
+
+[node name="Hud" type="CanvasLayer" unique_id=1997396580]
+script = ExtResource("1_0mwgc")
+
+[node name="Control" type="Control" parent="." unique_id=713698001]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Clock" type="Node2D" parent="Control" unique_id=187098262]
+position = Vector2(589, 101)
+scale = Vector2(0.08, 0.08)
+
+[node name="Fond" type="Sprite2D" parent="Control/Clock" unique_id=1050986740]
+texture = ExtResource("2_fond")
+
+[node name="Aiguille" type="Sprite2D" parent="Control/Clock" unique_id=1818470346]
+unique_name_in_owner = true
+position = Vector2(12.5, 87.5)
+texture = ExtResource("3_aiguille")
+
+[node name="Centre" type="Sprite2D" parent="Control/Clock" unique_id=2142929508]
+texture = ExtResource("4_centre")

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="DisasterData" format=3 uid="uid://l58beqr5fndl"]
+
+[ext_resource type="Script" uid="uid://c423an4v0555f" path="res://resources/disaster_data.gd" id="1_disaster"]
+
+[resource]
+script = ExtResource("1_disaster")
+disaster_id = "tempete_de_larry"
+disaster_name = "Larry's Storm"
+signs = Array[String](["Strong winds", "Mist", "Objects moving on their own", "Night", "Buzzing"])
+solutions = Array[String](["Barricade planks", "Cut the tree", "Disinfect the ducts"])
+sky_color = Color(0.15, 0.15, 0.2, 1)
+fog_density = 0.06
+is_night = true
+soundtrack_path = "res://assets/audio/soundtrack/tornado.mp3"
+enabled_signs = Array[String](["moving_objects", "night", "mist", "strong_wind"])
+required_task_ids = Array[String](["barricade_planks", "cut_tree", "disinfect_ducts"])

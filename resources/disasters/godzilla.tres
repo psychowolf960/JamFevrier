@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="DisasterData" format=3 uid="uid://god0illa"]
+
+[ext_resource type="Script" uid="uid://c423an4v0555f" path="res://resources/disaster_data.gd" id="1_disaster"]
+
+[resource]
+script = ExtResource("1_disaster")
+disaster_id = "godzilla"
+disaster_name = "Godzilla"
+signs = Array[String](["Regular tremors", "Broken windows", "Strong winds", "Night", "Tank"])
+solutions = Array[String](["Tank", "Barricade planks", "Restore power"])
+sky_color = Color(0.02, 0.02, 0.05, 1)
+fog_density = 0.02
+is_night = true
+soundtrack_path = "res://assets/audio/soundtrack/godzilla.mp3"
+enabled_signs = Array[String](["moving_objects", "tremors", "night"])
+required_task_ids = Array[String](["tank", "barricade_planks", "restore_power"])

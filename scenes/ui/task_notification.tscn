@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://c4x7vindbngdm"]
+
+[ext_resource type="Script" uid="uid://h0ox5esm20v8" path="res://scenes/ui/task_notification.gd" id="1_notif"]
+[ext_resource type="FontFile" uid="uid://dngwuth2a6635" path="res://assets/fonts/Alphakind.ttf" id="2_v4fsv"]
+
+[node name="TaskNotification" type="Control" unique_id=2026137361]
+custom_minimum_size = Vector2(320, 48)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_notif")
+
+[node name="CheckLabel" type="Label" parent="." unique_id=1177641283]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 29.0
+offset_right = 69.0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 22
+text = "☐"
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="." unique_id=1993001489]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 67.0
+offset_right = 349.0
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_v4fsv")
+theme_override_font_sizes/font_size = 16
+text = "Task"
+vertical_alignment = 1

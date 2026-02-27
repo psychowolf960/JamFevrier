@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="DisasterData" format=3 uid="uid://essaim"]
+
+[ext_resource type="Script" uid="uid://c423an4v0555f" path="res://resources/disaster_data.gd" id="1_disaster"]
+
+[resource]
+script = ExtResource("1_disaster")
+disaster_id = "essaim"
+disaster_name = "Swarm"
+signs = Array[String](["Cockroaches", "Buzzing", "Objects moving slightly", "Flickering lights"])
+solutions = Array[String](["Take out the bins", "Disinfect the ducts"])
+sky_color = Color(0.3, 0.25, 0.1, 1)
+fog_density = 0.01
+soundtrack_path = "res://assets/audio/soundtrack/infestation_theme.mp3"
+enabled_signs = Array[String](["moving_objects", "flickering_lights", "cockroaches"])
+required_task_ids = Array[String](["take_out_bins", "disinfect_ducts"])

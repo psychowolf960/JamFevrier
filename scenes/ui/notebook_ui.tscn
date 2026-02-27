@@ -1,0 +1,124 @@
+[gd_scene format=3 uid="uid://bntbkui123450"]
+
+[ext_resource type="Script" uid="uid://bgsb5qk2p2jff" path="res://scenes/ui/notebook_ui.gd" id="1_ntbkui"]
+
+[node name="NotebookUI" type="CanvasLayer" unique_id=1493864136]
+layer = 10
+script = ExtResource("1_ntbkui")
+
+[node name="Root" type="Control" parent="." unique_id=904020296]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 100.0
+offset_top = 83.0
+offset_right = -100.0
+offset_bottom = -83.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Backdrop" type="ColorRect" parent="Root" unique_id=2061617983]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -22.0
+offset_top = 12.0
+offset_right = -22.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.08, 0.06, 0.04, 0.78)
+
+[node name="CenterContainer" type="CenterContainer" parent="Root" unique_id=114981493]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -8.0
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BookPanel" type="Control" parent="Root/CenterContainer" unique_id=1796468436]
+custom_minimum_size = Vector2(1100, 700)
+layout_mode = 2
+
+[node name="BookBg" type="Panel" parent="Root/CenterContainer/BookPanel" unique_id=1346084654]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -31.0
+offset_top = -6.0
+offset_right = 31.0
+offset_bottom = -53.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LeftPage" type="Control" parent="Root/CenterContainer/BookPanel" unique_id=58813072]
+anchors_preset = 0
+offset_left = 48.0
+offset_top = 42.0
+offset_right = 548.0
+offset_bottom = 611.0
+
+[node name="LeftVBox" type="VBoxContainer" parent="Root/CenterContainer/BookPanel/LeftPage" unique_id=1885102171]
+unique_name_in_owner = true
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="RightPage" type="Control" parent="Root/CenterContainer/BookPanel" unique_id=1669486237]
+anchors_preset = 0
+offset_left = 548.0
+offset_top = 42.0
+offset_right = 1048.0
+offset_bottom = 611.0
+
+[node name="RightVBox" type="VBoxContainer" parent="Root/CenterContainer/BookPanel/RightPage" unique_id=1967369785]
+unique_name_in_owner = true
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="NavBar" type="HBoxContainer" parent="Root/CenterContainer/BookPanel" unique_id=1750413342]
+layout_mode = 0
+offset_left = 390.0
+offset_top = 604.0
+offset_right = 710.0
+offset_bottom = 640.0
+
+[node name="PrevButton" type="Button" parent="Root/CenterContainer/BookPanel/NavBar" unique_id=141078716]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(56, 36)
+layout_mode = 2
+text = "◀"
+
+[node name="PageLabel" type="Label" parent="Root/CenterContainer/BookPanel/NavBar" unique_id=1497121029]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NextButton" type="Button" parent="Root/CenterContainer/BookPanel/NavBar" unique_id=1709980099]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(56, 36)
+layout_mode = 2
+text = "▶"
+
+[node name="CloseButton" type="Button" parent="Root/CenterContainer/BookPanel" unique_id=1656568861]
+layout_mode = 0
+offset_left = 942.0
+offset_top = 10.0
+offset_right = 1090.0
+offset_bottom = 42.0
+text = "✕  Fermer  [J]"
+
+[connection signal="pressed" from="Root/CenterContainer/BookPanel/NavBar/PrevButton" to="." method="_on_prev_pressed"]
+[connection signal="pressed" from="Root/CenterContainer/BookPanel/NavBar/NextButton" to="." method="_on_next_pressed"]
+[connection signal="pressed" from="Root/CenterContainer/BookPanel/CloseButton" to="." method="_on_close_pressed"]

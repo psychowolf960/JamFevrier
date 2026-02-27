@@ -1,0 +1,5 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://ttqalm2vm1ag"]
+
+[resource]
+uv1_scale = Vector3(1.8, 1.8, 1.8)
+uv1_triplanar = true

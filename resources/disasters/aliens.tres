@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="DisasterData" format=3 uid="uid://liens"]
+
+[ext_resource type="Script" uid="uid://c423an4v0555f" path="res://resources/disaster_data.gd" id="1_disaster"]
+
+[resource]
+script = ExtResource("1_disaster")
+disaster_id = "aliens"
+disaster_name = "Aliens"
+signs = Array[String](["Doors closing on their own", "Mist", "Flickering lights", "Night"])
+solutions = Array[String](["Tank", "Orient the dish", "Restore power"])
+sky_color = Color(0, 0.05, 0.02, 1)
+fog_density = 0.04
+is_night = true
+enabled_signs = Array[String](["flickering_lights", "night", "mist"])
+required_task_ids = Array[String](["tank", "orient_dish", "restore_power"])

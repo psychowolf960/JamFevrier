@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://ewgn421smjaw"]
+
+[ext_resource type="Script" uid="uid://dx80bmjkmlin3" path="res://scenes/minigames/screw_anim.gd" id="1_screwscript"]
+[ext_resource type="Texture2D" uid="uid://brcv4u11frlyn" path="res://assets/textures/screw.png" id="2_7vx0n"]
+
+[node name="ScrewAnim" type="Node2D" unique_id=693921307]
+script = ExtResource("1_screwscript")
+
+[node name="ScrewSprite" type="Sprite2D" parent="." unique_id=619583781]
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("2_7vx0n")

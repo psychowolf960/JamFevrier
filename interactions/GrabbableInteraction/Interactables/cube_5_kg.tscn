@@ -1,0 +1,26 @@
+[gd_scene load_steps=7 format=3 uid="uid://nv6su48cqvpq"]
+
+[ext_resource type="Texture2D" uid="uid://dxiueuuo4wuxf" path="res://assets/kenney_protoype_textures/PNG/Red/texture_01.png" id="1_3abmj"]
+[ext_resource type="PackedScene" uid="uid://bpu21rrvk7fi2" path="res://interactions/GrabbableInteraction/grabbable_interaction.tscn" id="2_3evqn"]
+[ext_resource type="AudioStream" uid="uid://du5gqipt0u3ri" path="res://assets/sound_effects/impactPlank_medium_003.ogg" id="3_ov0gm"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dnjkn"]
+albedo_texture = ExtResource("1_3abmj")
+
+[sub_resource type="BoxMesh" id="BoxMesh_gnhs0"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6o44w"]
+
+[node name="Cube_5kg" type="RigidBody3D"]
+mass = 5.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_dnjkn")
+mesh = SubResource("BoxMesh_gnhs0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_6o44w")
+
+[node name="GrabbableInteraction" parent="." node_paths=PackedStringArray("object_ref") instance=ExtResource("2_3evqn")]
+collision_sound_effect = ExtResource("3_ov0gm")
+object_ref = NodePath("..")
