@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://3b2b210asjb8"]
+
+[ext_resource type="Texture2D" uid="uid://bwwuhi0hoow0e" path="res://assets/others/dust.png" id="1_v3px2"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_tbnf8"]
+frame_0/texture = ExtResource("1_v3px2")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r1bmu"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = SubResource("AnimatedTexture_tbnf8")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 4
+particles_anim_v_frames = 1
+particles_anim_loop = true
+
+[sub_resource type="Curve" id="Curve_ii537"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.08675798, 0.93774307), 0.0, 0.0, 0, 0, Vector2(0.9223744, 0.8132295), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_rofvo"]
+curve = SubResource("Curve_ii537")
+
+[sub_resource type="Curve" id="Curve_r1bmu"]
+_data = [Vector2(0, 0.019455194), 0.0, 0.0, 0, 0, Vector2(0.35616437, 0.65758747), 4.2105746, 4.2105746, 0, 0, Vector2(0.8173516, 1), 2.7268493, 2.7268493, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_6w6mm"]
+curve = SubResource("Curve_r1bmu")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6w6mm"]
+emission_shape_scale = Vector3(0.02, 0.495, 0.53)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+inherit_velocity_ratio = 0.517
+initial_velocity_min = 0.5
+initial_velocity_max = 1.0
+gravity = Vector3(0, -0.5, 0)
+scale_min = 0.099999994
+scale_curve = SubResource("CurveTexture_6w6mm")
+color = Color(0.61348796, 0.47051424, 0.27174234, 1)
+alpha_curve = SubResource("CurveTexture_rofvo")
+anim_speed_min = 1.0
+anim_speed_max = 2.0
+anim_offset_max = 1.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_os81g"]
+
+[node name="GPUParticles3D" type="GPUParticles3D" unique_id=1529516195]
+material_override = SubResource("StandardMaterial3D_r1bmu")
+amount = 10
+lifetime = 2.0
+process_material = SubResource("ParticleProcessMaterial_6w6mm")
+draw_pass_1 = SubResource("QuadMesh_os81g")
