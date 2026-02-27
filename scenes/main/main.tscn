@@ -1159,6 +1159,9 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_j2y0s")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_62atk"]
+size = Vector3(1.362793, 1.8555908, 2.4951172)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i7in8"]
 albedo_color = Color(0, 1, 1, 1)
 
@@ -2290,7 +2293,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.810251, 1.025, 7.112049)
 transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -0.8280144, 9.124576, -39.80214)
 
 [node name="TrashBin" type="Area3D" parent="." unique_id=847530059 groups=["bins_required"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4995052, 0)
+transform = Transform3D(-1.9825923, -0.26330176, 2.9936308e-07, -0.2617453, 1.9708724, -0.21714382, 0.028586881, -0.21525387, -1.9881772, -7.986306, 8.382619, -39.430767)
 script = ExtResource("27_7nlll")
 
 [node name="benne" type="Node3D" parent="TrashBin" unique_id=509613836]
@@ -2392,6 +2395,10 @@ mesh = SubResource("ArrayMesh_rymff")
 transform = Transform3D(67.31596, -54.925877, 49.51473, -72.51434, -62.156548, 29.635006, 14.499357, -55.85437, -81.67042, 0.07634853, 3.528866, -0.058916926)
 mesh = SubResource("ArrayMesh_ffm3n")
 
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TrashBin" unique_id=1204043682]
+transform = Transform3D(1, 1.1641532e-09, -4.5634806e-08, 6.868504e-09, 1.0000001, 8.940697e-08, -9.313226e-10, 3.9488077e-07, 1, 0.18139672, 0.4277954, 0)
+shape = SubResource("BoxShape3D_62atk")
+
 [node name="Window" type="StaticBody3D" parent="." unique_id=1964569237]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.1011095, 3.8222108, -2.5941715)
 
@@ -2405,7 +2412,7 @@ shape = SubResource("BoxShape3D_7nlll")
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Window" unique_id=13172907]
 
 [node name="Tree" type="StaticBody3D" parent="." unique_id=1285893122]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.1011095, 0.98231316, 8.181638)
+transform = Transform3D(2.930488, 0.642058, 0, -0.642058, 2.930488, 0, 0, 0, 3, 16.064762, 7.270094, -37.482185)
 script = ExtResource("29_gkmcc")
 
 [node name="souche" type="Node3D" parent="Tree" unique_id=116953048]
@@ -2482,7 +2489,7 @@ metadata/_custom_type_script = "uid://b5345wa8n0140"
 transform = Transform3D(0.355, 0, 0, 0, 0.355, 0, 0, 0, 0.355, 0.12750912, -0.48027015, 0.10046339)
 
 [node name="Dish" type="StaticBody3D" parent="." unique_id=754660347]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.878049, 2.0757718, 3.3077765)
+transform = Transform3D(0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 0, 0, 1, 5.8293495, 19.806824, -37.15883)
 
 [node name="WheelInteraction" parent="Dish" unique_id=52498447 instance=ExtResource("31_7nlll")]
 
