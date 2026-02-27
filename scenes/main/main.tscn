@@ -21,11 +21,17 @@
 [ext_resource type="Script" uid="uid://cs3mdwdj1scay" path="res://scripts/PuzzleScripts/window_interaction.gd" id="28_i7in8"]
 [ext_resource type="Script" uid="uid://d06mpijp5228t" path="res://scripts/PuzzleScripts/tree_stump.gd" id="29_gkmcc"]
 [ext_resource type="PackedScene" uid="uid://dqarax5ey6q5s" path="res://scenes/mini_larry.tscn" id="29_i7in8"]
+[ext_resource type="PackedScene" path="res://scenes/poster.tscn" id="30_r1bmu"]
 [ext_resource type="PackedScene" uid="uid://ck5p76gf32al7" path="res://assets/models/ordinateur.fbx" id="31_6w6mm"]
 [ext_resource type="PackedScene" uid="uid://crawf680nj5eo" path="res://interactions/RotatableInteraction/WheelInteraction/wheel_interaction.tscn" id="31_7nlll"]
+[ext_resource type="Texture2D" uid="uid://bo6enf6d7dea6" path="res://assets/textures/baudo_poster.png" id="31_os81g"]
 [ext_resource type="Script" uid="uid://b5345wa8n0140" path="res://scripts/PuzzleScripts/computer_interaction.gd" id="31_tbnf8"]
+[ext_resource type="Texture2D" uid="uid://cs3dw5b651cll" path="res://assets/textures/gus_poster.png" id="32_1k3ck"]
 [ext_resource type="Script" uid="uid://b805v17hpikct" path="res://scripts/PuzzleScripts/dish_target.gd" id="32_ii537"]
+[ext_resource type="Texture2D" uid="uid://g6l2cv3uyw7a" path="res://assets/textures/juice_poster.png" id="33_62f45"]
 [ext_resource type="AudioStream" uid="uid://cp3vqo44ublov" path="res://assets/audio/dish_beep.mp3" id="33_rofvo"]
+[ext_resource type="Texture2D" uid="uid://ds1sccl5ngy3l" path="res://assets/textures/larry_poster.png" id="34_6g32y"]
+[ext_resource type="Texture2D" uid="uid://d2400be28kckj" path="res://assets/textures/ooga_poster.png" id="35_5nwjq"]
 [ext_resource type="Script" uid="uid://chjvoye6coylv" path="res://scripts/Signs/flickering_light.gd" id="35_r1bmu"]
 [ext_resource type="Script" uid="uid://drxytca88d0nm" path="res://scripts/Signs/strong_wind.gd" id="37_62f45"]
 [ext_resource type="AudioStream" uid="uid://dmnhyls6humiy" path="res://assets/audio/rain.mp3" id="38_6g32y"]
@@ -2702,6 +2708,14 @@ shape = SubResource("BoxShape3D_tbnf8")
 [node name="miniLarry" parent="." unique_id=1633312123 node_paths=PackedStringArray("player") instance=ExtResource("29_i7in8")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 3.7722373, 0)
 player = NodePath("../Player")
+
+[node name="Poster" parent="." unique_id=857058484 instance=ExtResource("30_r1bmu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0778296, 12.392034, -45.730457)
+textures = Array[Texture2D]([ExtResource("31_os81g"), ExtResource("32_1k3ck"), ExtResource("33_62f45"), ExtResource("34_6g32y"), ExtResource("35_5nwjq")])
+
+[node name="Poster2" parent="." unique_id=1921296333 instance=ExtResource("30_r1bmu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0778296, 12.392034, -45.730457)
+textures = Array[Texture2D]([ExtResource("31_os81g"), ExtResource("32_1k3ck"), ExtResource("33_62f45"), ExtResource("34_6g32y"), ExtResource("35_5nwjq")])
 
 [editable path="Sandbox/Keypad"]
 [editable path="Sandbox/Power_Box_WithDoor"]

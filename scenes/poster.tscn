@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://b0vibw1l8o5np"]
+
+[ext_resource type="Script" uid="uid://dgpefapkvjel8" path="res://scripts/Signs/poster.gd" id="1_poster"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_poster"]
+size = Vector2(2.4, 3.6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_poster"]
+size = Vector3(2.4, 3.6, 0.02)
+
+[node name="Poster" type="StaticBody3D" unique_id=1631693502]
+script = ExtResource("1_poster")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=89905277]
+mesh = SubResource("QuadMesh_poster")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1040991196]
+shape = SubResource("BoxShape3D_poster")
