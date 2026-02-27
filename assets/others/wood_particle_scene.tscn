@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://6jf0qtg7yfwg"]
+
+[ext_resource type="Texture2D" uid="uid://tn4p6403und6" path="res://assets/others/wood_piece.png" id="1_lnm32"]
+
+[sub_resource type="Curve" id="Curve_lnm32"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.03608247, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_airf5"]
+curve = SubResource("Curve_lnm32")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jvq7g"]
+emission_shape = 1
+emission_sphere_radius = 1.0
+angle_min = 1.0728835e-05
+angle_max = 360.00003
+direction = Vector3(0, 1, 0)
+initial_velocity_min = 0.5
+initial_velocity_max = 5.0
+angular_velocity_min = -1.6093254e-05
+angular_velocity_max = 359.99997
+alpha_curve = SubResource("CurveTexture_airf5")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_airf5"]
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_lnm32")
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_jvq7g"]
+material = SubResource("StandardMaterial3D_airf5")
+
+[node name="WoodParticle" type="GPUParticles3D" unique_id=1947344077]
+emitting = false
+lifetime = 1.25
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_jvq7g")
+draw_pass_1 = SubResource("QuadMesh_jvq7g")
