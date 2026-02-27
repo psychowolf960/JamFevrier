@@ -79,31 +79,47 @@ func _physics_process(delta: float) -> void:
 
 	updatePlayerState()
 	updateCamera(delta)
-
-	if not is_on_floor():
+	
+	# TODO: Item unequiped condition.
+	if Input.is_action_pressed(&"primary")and interaction_raycast.can_climb:
+		interaction_raycast.enable_check_climbing(true)
 		is_in_air = true
-		if velocity.y >= 0:
-			velocity += get_gravity() * delta
+		
+		# Get forward riection
+		direction = lerp(direction, (-head.global_transform.basis.z).normalized(), delta*10.0)
+		if direction:
+			velocity = direction * current_speed
 		else:
-			velocity += get_gravity() * delta * 2.0
-	else:
-		if is_in_air == true:
-			footsteps_se.play()
-			is_in_air = false
-		if Input.is_action_just_pressed("jump") and player_state != PlayerState.CROUCHING:
-			velocity.y = jump_velocity
-			jump_se.play()
+			velocity = lerp(velocity, Vector3.ZERO, current_speed)
 
-	input_dir = Input.get_vector("left", "right", "forward", "backward")
-	direction = lerp(direction, (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized(), delta*10.0)
-	if direction:
-		velocity.x = direction.x * current_speed
-		velocity.z = direction.z * current_speed
+		move_and_slide()
 	else:
-		velocity.x = move_toward(velocity.x, 0, current_speed)
-		velocity.z = move_toward(velocity.z, 0, current_speed)
+		interaction_raycast.enable_check_climbing(false)
+		
+		if not is_on_floor():
+			is_in_air = true
+			if velocity.y >= 0:
+				velocity += get_gravity() * delta
+			else:
+				velocity += get_gravity() * delta * 2.0
+		else:
+			if is_in_air == true:
+				footsteps_se.play()
+				is_in_air = false
+			if Input.is_action_just_pressed("jump") and player_state != PlayerState.CROUCHING:
+				velocity.y = jump_velocity
+				jump_se.play()
 
-	move_and_slide()
+		input_dir = Input.get_vector("left", "right", "forward", "backward")
+		direction = lerp(direction, (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized(), delta*10.0)
+		if direction:
+			velocity.x = direction.x * current_speed
+			velocity.z = direction.z * current_speed
+		else:
+			velocity.x = move_toward(velocity.x, 0, current_speed)
+			velocity.z = move_toward(velocity.z, 0, current_speed)
+
+		move_and_slide()
 
 func _process(delta: float) -> void:
 	if sensitivity_fading_in:

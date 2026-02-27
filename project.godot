@@ -36,6 +36,7 @@ enabled=PackedStringArray("res://addons/csg_toolkit/plugin.cfg")
 bin=""
 bins_required=""
 duct_vent_interaction=""
+CLIMBEABLE=""
 
 [input]
 

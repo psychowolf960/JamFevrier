@@ -2467,7 +2467,7 @@ shape = SubResource("BoxShape3D_7nlll")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Window" unique_id=13172907]
 
-[node name="Tree" type="StaticBody3D" parent="." unique_id=1285893122]
+[node name="Tree" type="StaticBody3D" parent="." unique_id=1285893122 groups=["CLIMBEABLE"]]
 transform = Transform3D(2.930488, 0.642058, 0, -0.642058, 2.930488, 0, 0, 0, 3, 16.064762, 7.270094, -37.482185)
 script = ExtResource("29_gkmcc")
 
@@ -2650,7 +2650,6 @@ volume_db = -11.632
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="wind" unique_id=821969798 node_paths=PackedStringArray("target")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 21.843563, 0)
-emitting = false
 amount = 500
 lifetime = 1.2
 visibility_aabb = AABB(-25, -50, -25, 50, 50, 50)
@@ -2760,21 +2759,19 @@ shape = SubResource("BoxShape3D_tbnf8")
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 3.7722373, 0)
 player = NodePath("../Player")
 
-[node name="vent" parent="." unique_id=995877599 node_paths=PackedStringArray("particles") instance=ExtResource("30_7nlll")]
+[node name="vent" parent="." unique_id=995877599 instance=ExtResource("30_7nlll")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.3, 9.5, -29)
 script = ExtResource("32_tbnf8")
-particles = NodePath("")
 
-[node name="custom_low_poly" parent="vent" index="0" unique_id=1142645864]
+[node name="custom_low_poly" parent="vent" index="0" unique_id=146307550]
 surface_material_override/0 = SubResource("StandardMaterial3D_tbnf8")
 
 [node name="GPUParticles3D" parent="vent" unique_id=1529516195 instance=ExtResource("34_tbnf8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.34496307, 0.11800003, 0)
 
-[node name="vent2" parent="." unique_id=269531082 node_paths=PackedStringArray("particles") instance=ExtResource("30_7nlll")]
+[node name="vent2" parent="." unique_id=269531082 instance=ExtResource("30_7nlll")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -6.7, 10, -44)
 script = ExtResource("32_tbnf8")
-particles = NodePath("")
 
 [node name="custom_low_poly" parent="vent2" index="0" unique_id=146307550]
 mesh = SubResource("ArrayMesh_7rk4w")

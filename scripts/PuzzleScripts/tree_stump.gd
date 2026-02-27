@@ -6,6 +6,10 @@ extends AbstractInteraction
 var _uses: int = 0
 var _completed: bool = false
 
+func _ready() -> void:
+	super()
+	add_to_group(&"CLIMBEABLE") # Used by raycast for climb.
+
 func use_item(item_data: ItemData) -> bool:
 	if _completed:
 		return false

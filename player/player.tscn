@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://luy7w0qfph84"]
 
 [ext_resource type="Script" uid="uid://chmo46pkxaexp" path="res://player/player.gd" id="1_oul6g"]
+[ext_resource type="Script" uid="uid://c4cxc648kj8ew" path="res://player/interaction_raycast.gd" id="2_8t03j"]
 [ext_resource type="Texture2D" uid="uid://dgh3ul6rjlkgi" path="res://assets/reticles/white_reticle.png" id="2_g1dw6"]
 [ext_resource type="PackedScene" uid="uid://bnvad8jy4rflu" path="res://player/interaction_controller.tscn" id="2_rkbax"]
 [ext_resource type="Texture2D" uid="uid://d1jemmogcuxvf" path="res://assets/reticles/tile_0155.png" id="3_qjkh3"]
@@ -92,9 +93,11 @@ cull_mask = 524285
 current = true
 fov = 90.0
 
-[node name="InteractionRaycast" type="RayCast3D" parent="Head/Eyes/Camera3D" unique_id=638800491]
+[node name="InteractionRaycast" type="RayCast3D" parent="Head/Eyes/Camera3D" unique_id=638800491 node_paths=PackedStringArray("foot_cast")]
 unique_name_in_owner = true
 target_position = Vector3(0, 0, -3)
+script = ExtResource("2_8t03j")
+foot_cast = NodePath("../../../../FootCast")
 
 [node name="Hand" type="Marker3D" parent="Head/Eyes/Camera3D" unique_id=1452369155]
 unique_name_in_owner = true
@@ -313,3 +316,7 @@ unique_name_in_owner = true
 stream = ExtResource("9_8t03j")
 volume_db = -10.0
 unit_size = 3.0
+
+[node name="FootCast" type="RayCast3D" parent="." unique_id=1168391140]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0795133, -0.11564999, 0.100000024)
+target_position = Vector3(0, 0, -1)
