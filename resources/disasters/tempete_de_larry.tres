@@ -14,3 +14,4 @@ is_night = true
 soundtrack_path = "res://assets/audio/soundtrack/tornado.mp3"
 enabled_signs = Array[String](["moving_objects", "night", "mist", "strong_wind"])
 required_task_ids = Array[String](["barricade_planks", "cut_tree", "disinfect_ducts"])
+lose_video_path = "uid://cfgvjb0ti0vgw"

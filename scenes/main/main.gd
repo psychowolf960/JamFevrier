@@ -17,10 +17,10 @@ func _ready() -> void:
 
 	GameManager.timer_updated.connect(_on_timer_updated)
 	GameManager.game_won.connect(func() -> void:
-		get_tree().change_scene_to_file("res://scenes/gameplay/win.tscn")
+		PersistentScene.change_scene("res://scenes/gameplay/win.tscn")
 	)
 	GameManager.game_lost.connect(func() -> void:
-		get_tree().change_scene_to_file("res://scenes/gameplay/lose.tscn")
+		PersistentScene.change_scene("res://scenes/gameplay/lose.tscn")
 	)
 
 	GameManager.start_preparation_phase()

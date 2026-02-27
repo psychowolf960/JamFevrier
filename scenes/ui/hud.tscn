@@ -4,6 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://dggu2r1xsmv47" path="res://assets/textures/horloge/fond.png" id="2_fond"]
 [ext_resource type="Texture2D" uid="uid://ck26gv2hilvja" path="res://assets/textures/horloge/aiguille.png" id="3_aiguille"]
 [ext_resource type="Texture2D" uid="uid://bbdm8h84nl88x" path="res://assets/textures/horloge/centre.png" id="4_centre"]
+[ext_resource type="Texture2D" uid="uid://bnflusgrpp1mp" path="res://assets/textures/carnet.png" id="5_carnet"]
+[ext_resource type="FontFile" uid="uid://dngwuth2a6635" path="res://assets/fonts/Alphakind.ttf" id="6_oj5la"]
 
 [node name="Hud" type="CanvasLayer" unique_id=1997396580]
 script = ExtResource("1_0mwgc")
@@ -22,12 +24,55 @@ position = Vector2(589, 101)
 scale = Vector2(0.08, 0.08)
 
 [node name="Fond" type="Sprite2D" parent="Control/Clock" unique_id=1050986740]
+scale = Vector2(0.6, 0.6)
 texture = ExtResource("2_fond")
 
 [node name="Aiguille" type="Sprite2D" parent="Control/Clock" unique_id=1818470346]
 unique_name_in_owner = true
-position = Vector2(12.5, 87.5)
+position = Vector2(9.536743e-07, 87.5)
+scale = Vector2(0.8, 0.8)
 texture = ExtResource("3_aiguille")
 
 [node name="Centre" type="Sprite2D" parent="Control/Clock" unique_id=2142929508]
 texture = ExtResource("4_centre")
+
+[node name="JournalHint" type="HBoxContainer" parent="Control" unique_id=648502932]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -148.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = 56.0
+grow_horizontal = 0
+mouse_filter = 2
+alignment = 1
+
+[node name="Icon" type="TextureRect" parent="Control/JournalHint" unique_id=1770016587]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("5_carnet")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="VSeparator" type="VSeparator" parent="Control/JournalHint" unique_id=989421124]
+layout_mode = 2
+
+[node name="VBox" type="VBoxContainer" parent="Control/JournalHint" unique_id=1826189515]
+layout_mode = 2
+mouse_filter = 2
+alignment = 1
+
+[node name="Counter" type="Label" parent="Control/JournalHint/VBox" unique_id=766043874]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_oj5la")
+text = "0 / 0"
+horizontal_alignment = 1
+
+[node name="KeyHint" type="Label" parent="Control/JournalHint/VBox" unique_id=100632959]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_oj5la")
+text = "[J]"
+horizontal_alignment = 1

@@ -13,3 +13,4 @@ fog_density = 0.01
 soundtrack_path = "res://assets/audio/soundtrack/infestation_theme.mp3"
 enabled_signs = Array[String](["moving_objects", "flickering_lights", "cockroaches"])
 required_task_ids = Array[String](["take_out_bins", "disinfect_ducts"])
+lose_video_path = "uid://bjjirxu1ri428"

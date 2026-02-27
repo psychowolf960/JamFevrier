@@ -13,6 +13,7 @@ config_version=5
 config/name="Jam Fevrier"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
+run/main_scene="res://scenes/ui/main_menu.tscn"
 
 [autoload]
 
@@ -22,6 +23,7 @@ TaskManager="*uid://dinbhdshgh76q"
 NotebookManager="*res://autoload/notebook_manager.gd"
 MusicManager="*res://autoload/music_manager.gd"
 CsgToolkitAutoload="*uid://w8ad8q4lneis"
+PersistentScene="*res://autoload/persistent_scene.gd"
 
 [debug_draw_3d]
 

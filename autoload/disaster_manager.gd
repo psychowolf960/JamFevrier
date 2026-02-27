@@ -1,6 +1,7 @@
 extends Node
 
 var _disasters: Array[DisasterData] = []
+var _used_ids: Array[String] = []
 
 var _ambient_player: AudioStreamPlayer = null
 
@@ -36,9 +37,19 @@ func select_random_disaster() -> DisasterData:
 	if _disasters.is_empty():
 		push_error("DisasterManager: no disasters loaded.")
 		return null
-	var picked: DisasterData = _disasters[randi() % _disasters.size()]
+	var available := _disasters.filter(func(d: DisasterData) -> bool:
+		return d.disaster_id not in _used_ids
+	)
+	if available.is_empty():
+		_used_ids.clear()
+		available = _disasters.duplicate()
+	var picked: DisasterData = available[randi() % available.size()]
+	_used_ids.append(picked.disaster_id)
 	GameManager.set_current_disaster(picked)
 	return picked
+
+func reset_used() -> void:
+	_used_ids.clear()
 
 func stop_ambient_audio() -> void:
 	if _ambient_player and _ambient_player.playing:

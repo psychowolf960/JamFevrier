@@ -14,3 +14,4 @@ is_night = true
 soundtrack_path = "res://assets/audio/soundtrack/godzilla.mp3"
 enabled_signs = Array[String](["moving_objects", "tremors", "night"])
 required_task_ids = Array[String](["tank", "barricade_planks", "restore_power"])
+lose_video_path = "uid://blvj4nq4vtnih"

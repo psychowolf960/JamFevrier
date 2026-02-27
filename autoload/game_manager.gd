@@ -43,6 +43,16 @@ func set_current_disaster(disaster: DisasterData) -> void:
 	current_disaster = disaster
 	disaster_set.emit(disaster)
 
+func skip_time(seconds: float) -> void:
+	if current_phase != GamePhase.PREPARATION:
+		return
+	var new_time := _timer.time_left - seconds
+	if new_time <= 0.0:
+		_timer.stop()
+		_on_timer_timeout()
+	else:
+		_timer.start(new_time)
+
 func resolve_disaster(won: bool) -> void:
 	if won:
 		current_phase = GamePhase.WIN
@@ -56,6 +66,7 @@ func reset() -> void:
 	current_phase = GamePhase.NONE
 	_timer.stop()
 	TaskManager.reset()
+	DisasterManager.reset_used()
 
 func _on_timer_timeout() -> void:
 	current_phase = GamePhase.DISASTER

@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bclkinter0001"]
+
+[ext_resource type="Script" path="res://interactions/ClockInteraction/clock_interaction.gd" id="1_clock"]
+
+[node name="ClockInteraction" type="Node"]
+script = ExtResource("1_clock")

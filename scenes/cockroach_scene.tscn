@@ -1,6 +1,9 @@
 [gd_scene format=4 uid="uid://d04dqyl2ss32"]
 
 [ext_resource type="Script" uid="uid://cw2ybcfrigkoq" path="res://scripts/Signs/cockroach_instance.gd" id="1_60r6t"]
+[ext_resource type="AudioStream" uid="uid://bttni1pa1q24c" path="res://assets/audio/kill_roach.mp3" id="2_fhf4b"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_fhf4b"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qjlln"]
 resource_name = "Material"
@@ -44,7 +47,21 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_dywck")
 
-[node name="Cube" type="MeshInstance3D" unique_id=1237127505]
-transform = Transform3D(400, 0, 0, 0, -1.7484555e-05, 400, 0, -400, -1.7484555e-05, 0, 0, 0)
-mesh = SubResource("ArrayMesh_bk76d")
+[node name="CharacterBody3D" type="CharacterBody3D" unique_id=2003884204]
 script = ExtResource("1_60r6t")
+crush_sound = ExtResource("2_fhf4b")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=2075332072]
+transform = Transform3D(-400, -3.496911e-05, -1.5285483e-12, 0, -1.7484555e-05, 400, -3.496911e-05, 400, 1.7484555e-05, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1224878342]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.24186069, 0)
+shape = SubResource("SphereShape3D_fhf4b")
+
+[node name="Cube" type="MeshInstance3D" parent="." unique_id=1237127505]
+transform = Transform3D(-100, -1.509958e-05, -6.6002363e-13, 0, -4.371139e-06, 100, -1.509958e-05, 100, 4.371139e-06, 0, 0, 0)
+mesh = SubResource("ArrayMesh_bk76d")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1388000557]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.24186069, 0)
+shape = SubResource("SphereShape3D_fhf4b")

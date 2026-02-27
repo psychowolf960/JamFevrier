@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://byr22t5vpx7n7" path="res://assets/reticles/use_reticle.png" id="5_2ieo8"]
 [ext_resource type="AudioStream" uid="uid://balac254rkql0" path="res://assets/sound_effects/footstep05.ogg" id="8_hg6s5"]
 [ext_resource type="PackedScene" uid="uid://tascqdeiqxem" path="res://player/inventory_controller.tscn" id="9_2ieo8"]
-[ext_resource type="AudioStream" uid="uid://b6cflqkbf4htm" path="res://assets/sound_effects/jump.ogg" id="9_8t03j"]
+[ext_resource type="AudioStream" uid="uid://mvyagtecspkk" path="res://assets/sound_effects/jump.mp3" id="9_hg6s5"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kqu6x"]
 
@@ -310,6 +310,6 @@ volume_db = -25.0
 
 [node name="Jump" type="AudioStreamPlayer3D" parent="Audio" unique_id=439359954]
 unique_name_in_owner = true
-stream = ExtResource("9_8t03j")
+stream = ExtResource("9_hg6s5")
 volume_db = -10.0
 unit_size = 3.0

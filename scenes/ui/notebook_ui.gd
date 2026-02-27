@@ -2,6 +2,10 @@ extends CanvasLayer
 
 signal close_requested
 
+const _FONT: FontFile = preload("res://assets/fonts/matrixtype-font/Matrixtype-lxMZX.ttf")
+const _FONT_SIZE_TITLE: int = 20
+const _FONT_SIZE_BODY: int  = 16
+
 @onready var _left_vbox: VBoxContainer = %LeftVBox
 @onready var _right_vbox: VBoxContainer = %RightVBox
 @onready var _page_label: Label = %PageLabel
@@ -47,44 +51,46 @@ func _populate_spread() -> void:
 	if right_idx < _disasters.size():
 		_fill_page(_right_vbox, _disasters[right_idx])
 
+func _make_label(text: String, size: int = _FONT_SIZE_BODY) -> Label:
+	var lbl := Label.new()
+	lbl.text = text
+	lbl.add_theme_font_override("font", _FONT)
+	lbl.add_theme_font_size_override("font_size", size)
+	return lbl
+
 func _fill_page(vbox: VBoxContainer, disaster: DisasterData) -> void:
 	var encountered := NotebookManager.has_encountered(disaster.disaster_id)
 
-	var name_lbl := Label.new()
-	name_lbl.text = disaster.disaster_name if encountered else "???"
+	var name_lbl := _make_label(disaster.disaster_name if encountered else "???", _FONT_SIZE_TITLE)
 	name_lbl.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	vbox.add_child(name_lbl)
 
 	vbox.add_child(HSeparator.new())
 
 	if not encountered:
-		var locked_lbl := Label.new()
-		locked_lbl.text = "Unknown catastrophe.\nEncounter it to unlock."
+		var locked_lbl := _make_label("Unknown catastrophe.\nEncounter it to unlock.")
 		locked_lbl.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		locked_lbl.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		vbox.add_child(locked_lbl)
 		return
 
 	if not disaster.signs.is_empty():
-		var signs_title := Label.new()
-		signs_title.text = "Signs:"
-		vbox.add_child(signs_title)
+		vbox.add_child(_make_label("Signs:"))
 
 		for sign in disaster.signs:
-			var sign_lbl := Label.new()
-			sign_lbl.text = "- " + sign
+			var sign_lbl := _make_label("- " + sign)
 			sign_lbl.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 			vbox.add_child(sign_lbl)
 
 		vbox.add_child(HSeparator.new())
 
-	var sol_title := Label.new()
-	sol_title.text = "Solutions:"
-	vbox.add_child(sol_title)
+	vbox.add_child(_make_label("Solutions:"))
 
 	for solution in disaster.solutions:
 		var cb := CheckBox.new()
 		cb.text = solution
+		cb.add_theme_font_override("font", _FONT)
+		cb.add_theme_font_size_override("font_size", _FONT_SIZE_BODY)
 		vbox.add_child(cb)
 
 func _clear_vbox(vbox: VBoxContainer) -> void:

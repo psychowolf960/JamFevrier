@@ -13,3 +13,4 @@ class_name DisasterData
 @export var enabled_signs: Array[String] = []
 @export var required_task_ids: Array[String] = []
 @export var illustration: Texture2D
+@export_file("*.ogv") var lose_video_path: String = ""

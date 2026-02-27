@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://dmn8oyyv5g57r"]
 
 [ext_resource type="Script" uid="uid://br185pppabevm" path="res://scenes/minigames/tank_minigame.gd" id="1_tankgame"]
-[ext_resource type="Texture2D" uid="uid://l1bhp22i45ts" path="res://assets/textures/winows_background.jpg" id="2_y54cd"]
+[ext_resource type="Texture2D" uid="uid://b6je276ow3u8q" path="res://assets/textures/windows_background.png" id="2_tpc4q"]
 [ext_resource type="Texture2D" uid="uid://b8naurpt0hxth" path="res://assets/textures/browser.png" id="3_3egtv"]
+[ext_resource type="Texture2D" uid="uid://c0pxvu3bqe83f" path="res://assets/textures/tank_bouton.png" id="3_u122h"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tpc4q"]
 
@@ -14,25 +15,29 @@ script = ExtResource("1_tankgame")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -496.0
-offset_top = -7.0
-offset_right = 496.0
-offset_bottom = 7.0
+offset_left = -443.0
+offset_top = -6.0
+offset_right = 549.0
+offset_bottom = 8.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_y54cd")
+texture = ExtResource("2_tpc4q")
 expand_mode = 2
 stretch_mode = 5
 
-[node name="BrowserButton" type="Button" parent="Desktop" unique_id=1402464316]
+[node name="BrowserButton" type="TextureButton" parent="Desktop" unique_id=704966968]
 layout_mode = 0
-offset_left = 630.0
-offset_top = 459.0
-offset_right = 749.0
-offset_bottom = 490.0
-text = "Open Browser"
+offset_left = 1009.0
+offset_top = 260.0
+offset_right = 1109.0
+offset_bottom = 360.0
+texture_normal = ExtResource("3_u122h")
+texture_pressed = ExtResource("3_u122h")
+texture_hover = ExtResource("3_u122h")
+stretch_mode = 0
 
 [node name="Browser" type="TextureRect" parent="." unique_id=1070164994]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -61,6 +66,10 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_tpc4q")
 
 [node name="CloseButton" type="Button" parent="Browser" unique_id=1843186213]
 layout_mode = 0
+offset_left = 1433.0
+offset_top = 23.0
+offset_right = 1506.0
+offset_bottom = 98.0
 theme_override_styles/normal = SubResource("StyleBoxEmpty_tpc4q")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_tpc4q")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_tpc4q")

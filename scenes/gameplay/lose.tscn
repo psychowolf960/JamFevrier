@@ -1,6 +1,18 @@
 [gd_scene format=3 uid="uid://dw10xdhk1it7v"]
 
 [ext_resource type="Script" uid="uid://dep5wxkytn4nr" path="res://scenes/gameplay/lose.gd" id="1_r4ejn"]
+[ext_resource type="VideoStream" uid="uid://blvj4nq4vtnih" path="res://assets/cinematics/godzilla_bad_ending.ogv" id="2_atx0e"]
+[ext_resource type="VideoStream" uid="uid://bjjirxu1ri428" path="res://assets/cinematics/bug_bad_ending.ogv" id="3_47gw8"]
+[ext_resource type="VideoStream" uid="uid://cwuaktfrs0ubr" path="res://assets/cinematics/alien_bad_ending.ogv" id="4_op6h2"]
+[ext_resource type="VideoStream" uid="uid://cfgvjb0ti0vgw" path="res://assets/cinematics/tornade_bad_ending.ogv" id="5_bvspn"]
+[ext_resource type="FontFile" uid="uid://dngwuth2a6635" path="res://assets/fonts/Alphakind.ttf" id="6_47gw8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_76k35"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0, 0, 0, 0.1764706)
 
 [node name="Loose" type="Control" unique_id=273102017]
 layout_mode = 3
@@ -10,33 +22,53 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_r4ejn")
+video_godzilla = ExtResource("2_atx0e")
+video_bug = ExtResource("3_47gw8")
+video_alien = ExtResource("4_op6h2")
+video_tornade = ExtResource("5_bvspn")
 
-[node name="Label" type="Label" parent="." unique_id=457585354]
-layout_mode = 0
-offset_left = 432.0
-offset_top = 200.0
-offset_right = 715.0
-offset_bottom = 288.0
-theme_override_font_sizes/font_size = 64
-text = "PERDU"
-horizontal_alignment = 1
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." unique_id=111000001]
+layout_mode = 1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -250.0
+offset_right = 250.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+expand = true
 
-[node name="SummaryLabel" type="Label" parent="." unique_id=222000001]
+[node name="UI" type="Control" parent="." unique_id=111000002]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SummaryLabel" type="Label" parent="UI" unique_id=222000001]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 350.0
 offset_top = 310.0
 offset_right = 800.0
 offset_bottom = 520.0
+theme_override_fonts/font = ExtResource("6_47gw8")
 theme_override_font_sizes/font_size = 20
-horizontal_alignment = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_76k35")
 
-[node name="RestartButton" type="Button" parent="." unique_id=222000002]
+[node name="RestartButton" type="Button" parent="UI" unique_id=222000002]
 layout_mode = 0
 offset_left = 490.0
 offset_top = 540.0
 offset_right = 660.0
 offset_bottom = 580.0
+theme_override_fonts/font = ExtResource("6_47gw8")
+theme_override_font_sizes/font_size = 24
 text = "Rejouer"
 
-[connection signal="pressed" from="RestartButton" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="UI/RestartButton" to="." method="_on_restart_pressed"]

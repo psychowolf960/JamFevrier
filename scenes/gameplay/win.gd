@@ -16,4 +16,4 @@ func _build_summary() -> void:
 func _on_restart_pressed() -> void:
 	GameManager.reset()
 	TaskManager.reset()
-	get_tree().change_scene_to_file("res://scenes/main/main.tscn")
+	PersistentScene.change_scene("res://scenes/main/main.tscn")

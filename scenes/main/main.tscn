@@ -7,7 +7,6 @@
 [ext_resource type="Script" uid="uid://ctr5m88ua3q" path="res://scripts/Signs/world_environment_controller.gd" id="4_1k3ck"]
 [ext_resource type="PackedScene" uid="uid://bpu21rrvk7fi2" path="res://interactions/GrabbableInteraction/grabbable_interaction.tscn" id="4_62atk"]
 [ext_resource type="Shader" uid="uid://bi76sq1rp6gsc" path="res://shaders/sky.gdshader" id="4_62f45"]
-[ext_resource type="PackedScene" uid="uid://cs7dsiexgq6ls" path="res://interactions/TypeableInteraction/Interactables/keypad.tscn" id="10_62atk"]
 [ext_resource type="PackedScene" uid="uid://nv6su48cqvpq" path="res://interactions/GrabbableInteraction/Interactables/cube_5_kg.tscn" id="11_i7in8"]
 [ext_resource type="PackedScene" uid="uid://dhifhdp582mcf" path="res://interactions/RotatableInteraction/DoorInteraction/Interactables/door.tscn" id="12_gkmcc"]
 [ext_resource type="PackedScene" uid="uid://cucux2geb02js" path="res://interactions/RotatableInteraction/DoorInteraction/Interactables/power_box_with_door.tscn" id="15_rofvo"]
@@ -21,7 +20,7 @@
 [ext_resource type="Script" uid="uid://cs3mdwdj1scay" path="res://scripts/PuzzleScripts/window_interaction.gd" id="28_i7in8"]
 [ext_resource type="Script" uid="uid://d06mpijp5228t" path="res://scripts/PuzzleScripts/tree_stump.gd" id="29_gkmcc"]
 [ext_resource type="PackedScene" uid="uid://dqarax5ey6q5s" path="res://scenes/mini_larry.tscn" id="29_i7in8"]
-[ext_resource type="PackedScene" path="res://scenes/poster.tscn" id="30_r1bmu"]
+[ext_resource type="PackedScene" uid="uid://b0vibw1l8o5np" path="res://scenes/poster.tscn" id="30_r1bmu"]
 [ext_resource type="PackedScene" uid="uid://ck5p76gf32al7" path="res://assets/models/ordinateur.fbx" id="31_6w6mm"]
 [ext_resource type="PackedScene" uid="uid://crawf680nj5eo" path="res://interactions/RotatableInteraction/WheelInteraction/wheel_interaction.tscn" id="31_7nlll"]
 [ext_resource type="Texture2D" uid="uid://bo6enf6d7dea6" path="res://assets/textures/baudo_poster.png" id="31_os81g"]
@@ -32,7 +31,9 @@
 [ext_resource type="AudioStream" uid="uid://cp3vqo44ublov" path="res://assets/audio/dish_beep.mp3" id="33_rofvo"]
 [ext_resource type="Texture2D" uid="uid://ds1sccl5ngy3l" path="res://assets/textures/larry_poster.png" id="34_6g32y"]
 [ext_resource type="Texture2D" uid="uid://d2400be28kckj" path="res://assets/textures/ooga_poster.png" id="35_5nwjq"]
+[ext_resource type="Script" uid="uid://dq863yyx1bvlf" path="res://scripts/Signs/cockroach_spawner.gd" id="35_6w6mm"]
 [ext_resource type="Script" uid="uid://chjvoye6coylv" path="res://scripts/Signs/flickering_light.gd" id="35_r1bmu"]
+[ext_resource type="PackedScene" uid="uid://d04dqyl2ss32" path="res://scenes/cockroach_scene.tscn" id="36_os81g"]
 [ext_resource type="Script" uid="uid://drxytca88d0nm" path="res://scripts/Signs/strong_wind.gd" id="37_62f45"]
 [ext_resource type="AudioStream" uid="uid://dmnhyls6humiy" path="res://assets/audio/rain.mp3" id="38_6g32y"]
 
@@ -1169,16 +1170,6 @@ shadow_mesh = SubResource("ArrayMesh_j2y0s")
 [sub_resource type="BoxShape3D" id="BoxShape3D_62atk"]
 size = Vector3(1.362793, 1.8555908, 2.4951172)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i7in8"]
-albedo_color = Color(0, 1, 1, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_gkmcc"]
-material = SubResource("StandardMaterial3D_i7in8")
-size = Vector3(0.5, 5, 3)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_7nlll"]
-size = Vector3(0.5, 5, 3)
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6qy6e"]
 resource_name = "Material"
 vertex_color_use_as_albedo = true
@@ -1866,8 +1857,8 @@ shader_parameter/scroll_speed = 0.05
 [sub_resource type="PlaneMesh" id="PlaneMesh_6w6mm"]
 material = SubResource("ShaderMaterial_r1bmu")
 size = Vector2(500, 500)
-subdivide_width = 100
-subdivide_depth = 100
+subdivide_width = 50
+subdivide_depth = 50
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5nwjq"]
 lifetime_randomness = 0.7
@@ -2188,91 +2179,6 @@ shape = SubResource("BoxShape3D_h6oqd")
 
 [node name="Sandbox" type="Node3D" parent="." unique_id=1701853647]
 
-[node name="Keypad" parent="Sandbox" unique_id=695541626 instance=ExtResource("10_62atk")]
-transform = Transform3D(-1.092785e-08, 0, -0.25, 0, 0.25, 0, 0.25, 0, -1.092785e-08, -17.62371, 2.487092, 0.3989128)
-
-[node name="Body" parent="Sandbox/Keypad" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.1525574e-07, 0, -14.63702)
-
-[node name="00" parent="Sandbox/Keypad/sb00" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.1525574e-07, 0, -14.63702)
-
-[node name="CollisionShape3D" parent="Sandbox/Keypad/sb00" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.022436738, -0.451087, -14.63702)
-
-[node name="01" parent="Sandbox/Keypad/sb01" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.1525574e-07, 0, -14.63702)
-
-[node name="CollisionShape3D" parent="Sandbox/Keypad/sb01" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.28499925, -0.17500019, -14.63702)
-
-[node name="02" parent="Sandbox/Keypad/sb02" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.1525574e-07, 0, -14.63702)
-
-[node name="CollisionShape3D" parent="Sandbox/Keypad/sb02" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.022436738, -0.17465019, -14.63702)
-
-[node name="03" parent="Sandbox/Keypad/sb03" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.1525574e-07, 0, -14.63702)
-
-[node name="CollisionShape3D" parent="Sandbox/Keypad/sb03" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24309778, -0.17465019, -14.63702)
-
-[node name="04" parent="Sandbox/Keypad/sb04" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.1525574e-07, 0, -14.63702)
-
-[node name="CollisionShape3D" parent="Sandbox/Keypad/sb04" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.28485632, 0.11035156, -14.63702)
-
-[node name="05" parent="Sandbox/Keypad/sb05" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.1525574e-07, 0, -14.63702)
-
-[node name="CollisionShape3D" parent="Sandbox/Keypad/sb05" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.021658063, 0.11035156, -14.63702)
-
-[node name="06" parent="Sandbox/Keypad/sb06" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.1525574e-07, 0, -14.63702)
-
-[node name="CollisionShape3D" parent="Sandbox/Keypad/sb06" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24309778, 0.11035156, -14.63702)
-
-[node name="07" parent="Sandbox/Keypad/sb07" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.1525574e-07, 0, -14.63702)
-
-[node name="CollisionShape3D" parent="Sandbox/Keypad/sb07" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.28407824, 0.39068127, -14.63702)
-
-[node name="08" parent="Sandbox/Keypad/sb08" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.1525574e-07, 0, -14.63702)
-
-[node name="CollisionShape3D" parent="Sandbox/Keypad/sb08" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.022436738, 0.39068127, -14.63702)
-
-[node name="09" parent="Sandbox/Keypad/sb09" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.1525574e-07, 0, -14.63702)
-
-[node name="CollisionShape3D" parent="Sandbox/Keypad/sb09" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24309778, 0.39068127, -14.63702)
-
-[node name="Clear" parent="Sandbox/Keypad/sbClear" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.1525574e-07, 0, -14.63702)
-
-[node name="CollisionShape3D" parent="Sandbox/Keypad/sbClear" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2872883, -0.451087, -14.63702)
-
-[node name="OK" parent="Sandbox/Keypad/sbOK" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.1525574e-07, 0, -14.63702)
-
-[node name="CollisionShape3D" parent="Sandbox/Keypad/sbOK" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2445327, -0.451087, -14.63702)
-
-[node name="Screen" parent="Sandbox/Keypad" index="13"]
-transform = Transform3D(-0.5, 0, -7.54979e-08, 0, 0.5, 0, 7.54979e-08, 0, -0.5, 0.020443797, 0.6686964, -14.644741)
-
-[node name="TypeableInteraction" parent="Sandbox/Keypad" index="14" node_paths=PackedStringArray("nodes_to_affect")]
-correct_code = Array[int]([0, 4, 5, 1, 0])
-nodes_to_affect = [null]
-
 [node name="Cube_5kg" parent="Sandbox" unique_id=1089375761 instance=ExtResource("11_i7in8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.21484, 1.5, -1.76593)
 
@@ -2280,7 +2186,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.21484, 1.5, -1.76593)
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -4.36794, 1.06583, -6.18618)
 
 [node name="DoorInteraction" parent="Sandbox/Power_Box_WithDoor/PivotPoint/Door" index="2"]
-reverse_input_direction = false
 maximum_rotation = 0.0
 
 [node name="OmniLight3D" parent="Sandbox/Power_Box_WithDoor/Light bulb" index="1"]
@@ -2405,18 +2310,6 @@ mesh = SubResource("ArrayMesh_ffm3n")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TrashBin" unique_id=1204043682]
 transform = Transform3D(1, 1.1641532e-09, -4.5634806e-08, 6.868504e-09, 1.0000001, 8.940697e-08, -9.313226e-10, 3.9488077e-07, 1, 0.18139672, 0.4277954, 0)
 shape = SubResource("BoxShape3D_62atk")
-
-[node name="Window" type="StaticBody3D" parent="." unique_id=1964569237]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.1011095, 3.8222108, -2.5941715)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Window" unique_id=993354585]
-transform = Transform3D(1, 0.00015707963, 0, -0.00015707963, 1, 0, 0, 0, 1, 0, 0, 0)
-mesh = SubResource("BoxMesh_gkmcc")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Window" unique_id=777028202]
-shape = SubResource("BoxShape3D_7nlll")
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="Window" unique_id=13172907]
 
 [node name="Tree" type="StaticBody3D" parent="." unique_id=1285893122]
 transform = Transform3D(2.930488, 0.642058, 0, -0.642058, 2.930488, 0, 0, 0, 3, 16.064762, 7.270094, -37.482185)
@@ -2597,7 +2490,7 @@ script = ExtResource("37_62f45")
 
 [node name="Rain" type="AudioStreamPlayer3D" parent="wind" unique_id=1245412329]
 stream = ExtResource("38_6g32y")
-volume_db = -11.632
+volume_db = -2.882
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="wind" unique_id=821969798]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 21.843563, 0)
@@ -2717,5 +2610,10 @@ textures = Array[Texture2D]([ExtResource("31_os81g"), ExtResource("32_1k3ck"), E
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0778296, 12.392034, -45.730457)
 textures = Array[Texture2D]([ExtResource("31_os81g"), ExtResource("32_1k3ck"), ExtResource("33_62f45"), ExtResource("34_6g32y"), ExtResource("35_5nwjq")])
 
-[editable path="Sandbox/Keypad"]
+[node name="CockroachSpawner" type="Node3D" parent="." unique_id=1980735966]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.24181, 14.603369, -16.200378)
+script = ExtResource("35_6w6mm")
+cockroach_scene = ExtResource("36_os81g")
+metadata/_custom_type_script = "uid://dq863yyx1bvlf"
+
 [editable path="Sandbox/Power_Box_WithDoor"]

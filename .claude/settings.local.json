@@ -4,7 +4,14 @@
       "Bash(dir:*)",
       "Bash(powershell -Command:*)",
       "Skill(claude-md-management:revise-claude-md)",
-      "Skill(claude-md-management:revise-claude-md:*)"
+      "Skill(claude-md-management:revise-claude-md:*)",
+      "Bash(xargs -0 ls -lh)",
+      "Bash(findstr \"uid=\" \"C:\\\\Users\\\\Admin\\\\Documents\\\\JamFevrier\\\\assets\\\\textures\\\\larry.png.import\")",
+      "Bash(findstr \"uid=\" \"C:\\\\Users\\\\Admin\\\\Documents\\\\JamFevrier\\\\assets\\\\textures\\\\larry_menacing.png.import\")",
+      "Bash(findstr \"uid=\" \"C:\\\\Users\\\\Admin\\\\Documents\\\\JamFevrier\\\\assets\\\\textures\\\\godzilla_button.png.import\")",
+      "Bash(findstr \"uid=\" \"C:\\\\Users\\\\Admin\\\\Documents\\\\JamFevrier\\\\assets\\\\textures\\\\tornado_button.png.import\")",
+      "Bash(findstr \"uid=\" \"C:\\\\Users\\\\Admin\\\\Documents\\\\JamFevrier\\\\assets\\\\textures\\\\main_icon.png.import\")",
+      "Bash(ls \"C:\\\\Users\\\\Admin\\\\Documents\\\\JamFevrier\\\\assets\\\\sound_effects\"\" 2>/dev/null || dir \"C:UsersAdminDocumentsJamFevrierassetssound_effects \")"
     ]
   }
 }
