@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://t4a1aopfiiwu"
-path="res://.godot/imported/health_pack_icon.png-54b0373a7a74322e9adfe30517a4b961.ctex"
+uid="uid://cs3dw5b651cll"
+path="res://.godot/imported/gus_poster.png-cc3d616dd8a55995f4a26fd8c954ce63.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://interactions/CollectableInteraction/EquippableInteraction/Interactables/health_pack_icon.png"
-dest_files=["res://.godot/imported/health_pack_icon.png-54b0373a7a74322e9adfe30517a4b961.ctex"]
+source_file="res://assets/textures/gus_poster.png"
+dest_files=["res://.godot/imported/gus_poster.png-cc3d616dd8a55995f4a26fd8c954ce63.ctex"]
 
 [params]
 

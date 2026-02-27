@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b43gj1rw28wgg"
-path="res://.godot/imported/key.png-9a103288c9a27749093b64ec3ee7c5d2.ctex"
+uid="uid://bo6enf6d7dea6"
+path="res://.godot/imported/baudo_poster.png-17dcc5608b38bf8cc07c64e9d49ca9d2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://interactions/CollectableInteraction/EquippableInteraction/Interactables/key.png"
-dest_files=["res://.godot/imported/key.png-9a103288c9a27749093b64ec3ee7c5d2.ctex"]
+source_file="res://assets/textures/baudo_poster.png"
+dest_files=["res://.godot/imported/baudo_poster.png-17dcc5608b38bf8cc07c64e9d49ca9d2.ctex"]
 
 [params]
 

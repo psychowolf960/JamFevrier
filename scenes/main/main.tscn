@@ -20,6 +20,7 @@
 [ext_resource type="Script" uid="uid://dvxq2tbjte0a2" path="res://scripts/PuzzleScripts/duct_vent.gd" id="28_62atk"]
 [ext_resource type="Script" uid="uid://cs3mdwdj1scay" path="res://scripts/PuzzleScripts/window_interaction.gd" id="28_i7in8"]
 [ext_resource type="Script" uid="uid://d06mpijp5228t" path="res://scripts/PuzzleScripts/tree_stump.gd" id="29_gkmcc"]
+[ext_resource type="PackedScene" uid="uid://dqarax5ey6q5s" path="res://scenes/mini_larry.tscn" id="29_i7in8"]
 [ext_resource type="PackedScene" uid="uid://ck5p76gf32al7" path="res://assets/models/ordinateur.fbx" id="31_6w6mm"]
 [ext_resource type="PackedScene" uid="uid://crawf680nj5eo" path="res://interactions/RotatableInteraction/WheelInteraction/wheel_interaction.tscn" id="31_7nlll"]
 [ext_resource type="Script" uid="uid://b5345wa8n0140" path="res://scripts/PuzzleScripts/computer_interaction.gd" id="31_tbnf8"]
@@ -2582,6 +2583,7 @@ mesh = SubResource("ArrayMesh_7alq4")
 surface_material_override/0 = SubResource("StandardMaterial3D_gkmcc")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="house" unique_id=828379779]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.585742, 0)
 mesh = SubResource("PlaneMesh_6w6mm")
 
 [node name="wind" type="Node3D" parent="." unique_id=1743341879]
@@ -2696,6 +2698,10 @@ metadata/_custom_type_script = "uid://cs3mdwdj1scay"
 [node name="CollisionShape3D" type="CollisionShape3D" parent="fenetre2" unique_id=1559040287]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.7595215, 0)
 shape = SubResource("BoxShape3D_tbnf8")
+
+[node name="miniLarry" parent="." unique_id=1633312123 node_paths=PackedStringArray("player") instance=ExtResource("29_i7in8")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 3.7722373, 0)
+player = NodePath("../Player")
 
 [editable path="Sandbox/Keypad"]
 [editable path="Sandbox/Power_Box_WithDoor"]
