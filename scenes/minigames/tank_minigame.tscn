@@ -2,6 +2,9 @@
 
 [ext_resource type="Script" uid="uid://br185pppabevm" path="res://scenes/minigames/tank_minigame.gd" id="1_tankgame"]
 [ext_resource type="Texture2D" uid="uid://l1bhp22i45ts" path="res://assets/textures/winows_background.jpg" id="2_y54cd"]
+[ext_resource type="Texture2D" uid="uid://b8naurpt0hxth" path="res://assets/textures/browser.png" id="3_3egtv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tpc4q"]
 
 [node name="TankMinigame" type="CanvasLayer" unique_id=67216008]
 layer = 10
@@ -30,20 +33,37 @@ offset_bottom = 490.0
 text = "Open Browser"
 
 [node name="Browser" type="TextureRect" parent="." unique_id=1070164994]
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -384.0
+offset_top = -6.0
+offset_right = 384.0
+offset_bottom = 6.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 0
+texture = ExtResource("3_3egtv")
+expand_mode = 3
 stretch_mode = 5
 
 [node name="BuyButton" type="Button" parent="Browser" unique_id=809676992]
-visible = false
 layout_mode = 0
-text = "Buy Tank ($500)"
+offset_left = 1167.0
+offset_top = 373.0
+offset_right = 1450.0
+offset_bottom = 546.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_tpc4q")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_tpc4q")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_tpc4q")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_tpc4q")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tpc4q")
 
 [node name="CloseButton" type="Button" parent="Browser" unique_id=1843186213]
 layout_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_tpc4q")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_tpc4q")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_tpc4q")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_tpc4q")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tpc4q")
 text = "X"
