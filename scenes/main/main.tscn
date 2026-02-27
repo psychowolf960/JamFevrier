@@ -2650,6 +2650,7 @@ volume_db = -11.632
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="wind" unique_id=821969798 node_paths=PackedStringArray("target")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 21.843563, 0)
+emitting = false
 amount = 500
 lifetime = 1.2
 visibility_aabb = AABB(-25, -50, -25, 50, 50, 50)

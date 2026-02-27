@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://c4cxc648kj8ew" path="res://player/interaction_raycast.gd" id="2_8t03j"]
 [ext_resource type="Texture2D" uid="uid://dgh3ul6rjlkgi" path="res://assets/reticles/white_reticle.png" id="2_g1dw6"]
 [ext_resource type="PackedScene" uid="uid://bnvad8jy4rflu" path="res://player/interaction_controller.tscn" id="2_rkbax"]
+[ext_resource type="PackedScene" uid="uid://6jf0qtg7yfwg" path="res://assets/others/wood_particle_scene.tscn" id="3_2ieo8"]
 [ext_resource type="Texture2D" uid="uid://d1jemmogcuxvf" path="res://assets/reticles/tile_0155.png" id="3_qjkh3"]
 [ext_resource type="Texture2D" uid="uid://bgj2lgeergj4y" path="res://assets/reticles/tile_0156.png" id="4_g6k8r"]
 [ext_resource type="Texture2D" uid="uid://byr22t5vpx7n7" path="res://assets/reticles/use_reticle.png" id="5_2ieo8"]
@@ -105,6 +106,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
 
 [node name="KeepNoteCameraUpdated" type="RemoteTransform3D" parent="Head/Eyes/Camera3D" unique_id=460273077]
 remote_path = NodePath("../../../SubViewportContainer/SubViewport/NoteCamera")
+
+[node name="Effects" type="Node3D" parent="Head/Eyes" unique_id=1906671247]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.5)
+
+[node name="WoodParticle" parent="Head/Eyes/Effects" unique_id=1947344077 instance=ExtResource("3_2ieo8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+
+[node name="WoodParticle3" parent="Head/Eyes/Effects" unique_id=268140896 instance=ExtResource("3_2ieo8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+
+[node name="WoodParticle2" parent="Head/Eyes/Effects" unique_id=1337900344 instance=ExtResource("3_2ieo8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="Head" unique_id=803029714]
 anchors_preset = 15

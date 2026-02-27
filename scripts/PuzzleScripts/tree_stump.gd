@@ -18,6 +18,12 @@ func use_item(item_data: ItemData) -> bool:
 	_uses += 1
 	var percentage: float = float(_uses) / float(uses_required) * 100.0
 	notify_nodes(percentage)
+	
+	# Effects
+	for node : Node in get_tree().get_nodes_in_group(&"WOOD_PARTICLES"):
+		if node.has_method(&"play_particles") and node.call(&"play_particles"):
+			break
+	
 	if _uses >= uses_required:
 		$tree.queue_free()
 		_completed = true

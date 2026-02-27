@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://6jf0qtg7yfwg"]
 
 [ext_resource type="Texture2D" uid="uid://tn4p6403und6" path="res://assets/others/wood_piece.png" id="1_lnm32"]
+[ext_resource type="Script" uid="uid://spt7mg2eaw3e" path="res://assets/others/wood_particle_scene.gd" id="2_airf5"]
 
 [sub_resource type="Curve" id="Curve_lnm32"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.03608247, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -23,6 +24,7 @@ alpha_curve = SubResource("CurveTexture_airf5")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_airf5"]
 transparency = 1
+no_depth_test = true
 vertex_color_use_as_albedo = true
 albedo_texture = ExtResource("1_lnm32")
 billboard_mode = 3
@@ -40,3 +42,4 @@ one_shot = true
 explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_jvq7g")
 draw_pass_1 = SubResource("QuadMesh_jvq7g")
+script = ExtResource("2_airf5")
