@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://2bnbfplyv5hv" path="res://audiotape/CollectionableNode.gd" id="1_ytbkw"]
 [ext_resource type="AudioStream" uid="uid://dy3jvdt87ty22" path="res://audiotape/test/one.mp3" id="2_afqu7"]
 [ext_resource type="AudioStream" uid="uid://7y8r03y00tkn" path="res://audiotape/test/two.mp3" id="3_deyri"]
+[ext_resource type="PackedScene" uid="uid://v5ihpljlbbj6" path="res://audiotape/assets/low_poly_tape.glb" id="3_gskfv"]
 [ext_resource type="AudioStream" uid="uid://dp6fecpwaow8w" path="res://audiotape/test/three.mp3" id="4_deyri"]
 [ext_resource type="Script" uid="uid://dm8u8100iptio" path="res://audiotape/test/test_head_player.gd" id="5_3kr4w"]
 [ext_resource type="PackedScene" uid="uid://v6o14pq6g3lx" path="res://audiotape/ui/AudioTapeList.tscn" id="6_0cvmj"]
@@ -42,8 +43,7 @@ resource = ExtResource("2_afqu7")
 [node name="Shape" type="CollisionShape3D" parent="items/Item1" unique_id=1524043757]
 shape = SubResource("BoxShape3D_hqqn4")
 
-[node name="body" type="CSGBox3D" parent="items/Item1" unique_id=257942722]
-size = Vector3(0.2, 0.2, 0.1)
+[node name="low_poly_tape" parent="items/Item1" unique_id=1071336629 instance=ExtResource("3_gskfv")]
 
 [node name="Item2" type="StaticBody3D" parent="items" unique_id=1548871104]
 script = ExtResource("1_ytbkw")
@@ -53,8 +53,7 @@ resource = ExtResource("3_deyri")
 [node name="Shape" type="CollisionShape3D" parent="items/Item2" unique_id=1577580725]
 shape = SubResource("BoxShape3D_hqqn4")
 
-[node name="body" type="CSGBox3D" parent="items/Item2" unique_id=767633923]
-size = Vector3(0.2, 0.2, 0.1)
+[node name="low_poly_tape" parent="items/Item2" unique_id=584019520 instance=ExtResource("3_gskfv")]
 
 [node name="Item3" type="StaticBody3D" parent="items" unique_id=1307426858]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
@@ -65,8 +64,7 @@ resource = ExtResource("4_deyri")
 [node name="Shape" type="CollisionShape3D" parent="items/Item3" unique_id=1000971776]
 shape = SubResource("BoxShape3D_hqqn4")
 
-[node name="body" type="CSGBox3D" parent="items/Item3" unique_id=1211737302]
-size = Vector3(0.2, 0.2, 0.1)
+[node name="low_poly_tape" parent="items/Item3" unique_id=1613270662 instance=ExtResource("3_gskfv")]
 
 [node name="PlayerHead" type="Node3D" parent="." unique_id=312993265]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
