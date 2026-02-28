@@ -1,0 +1,95 @@
+[gd_scene format=3 uid="uid://bh0p5fv6jbx33"]
+
+[ext_resource type="Script" uid="uid://2bnbfplyv5hv" path="res://audiotape/CollectionableNode.gd" id="1_ytbkw"]
+[ext_resource type="AudioStream" uid="uid://dy3jvdt87ty22" path="res://audiotape/test/one.mp3" id="2_afqu7"]
+[ext_resource type="AudioStream" uid="uid://7y8r03y00tkn" path="res://audiotape/test/two.mp3" id="3_deyri"]
+[ext_resource type="AudioStream" uid="uid://dp6fecpwaow8w" path="res://audiotape/test/three.mp3" id="4_deyri"]
+[ext_resource type="Script" uid="uid://dm8u8100iptio" path="res://audiotape/test/test_head_player.gd" id="5_3kr4w"]
+[ext_resource type="PackedScene" uid="uid://v6o14pq6g3lx" path="res://audiotape/ui/AudioTapeList.tscn" id="6_0cvmj"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3kr4w"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_0cvmj"]
+sky_material = SubResource("ProceduralSkyMaterial_3kr4w")
+
+[sub_resource type="Environment" id="Environment_gskfv"]
+background_mode = 2
+sky = SubResource("Sky_0cvmj")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hqqn4"]
+size = Vector3(0.3, 0.3, 0.1)
+
+[node name="Test" type="Node3D" unique_id=211454605]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1126595649]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1828121185]
+environment = SubResource("Environment_gskfv")
+
+[node name="items" type="Node3D" parent="." unique_id=1482250156]
+
+[node name="Item1" type="StaticBody3D" parent="items" unique_id=1936734200]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
+script = ExtResource("1_ytbkw")
+resource = ExtResource("2_afqu7")
+
+[node name="Shape" type="CollisionShape3D" parent="items/Item1" unique_id=1524043757]
+shape = SubResource("BoxShape3D_hqqn4")
+
+[node name="body" type="CSGBox3D" parent="items/Item1" unique_id=257942722]
+size = Vector3(0.2, 0.2, 0.1)
+
+[node name="Item2" type="StaticBody3D" parent="items" unique_id=1548871104]
+script = ExtResource("1_ytbkw")
+uid = 1
+resource = ExtResource("3_deyri")
+
+[node name="Shape" type="CollisionShape3D" parent="items/Item2" unique_id=1577580725]
+shape = SubResource("BoxShape3D_hqqn4")
+
+[node name="body" type="CSGBox3D" parent="items/Item2" unique_id=767633923]
+size = Vector3(0.2, 0.2, 0.1)
+
+[node name="Item3" type="StaticBody3D" parent="items" unique_id=1307426858]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+script = ExtResource("1_ytbkw")
+uid = 2
+resource = ExtResource("4_deyri")
+
+[node name="Shape" type="CollisionShape3D" parent="items/Item3" unique_id=1000971776]
+shape = SubResource("BoxShape3D_hqqn4")
+
+[node name="body" type="CSGBox3D" parent="items/Item3" unique_id=1211737302]
+size = Vector3(0.2, 0.2, 0.1)
+
+[node name="PlayerHead" type="Node3D" parent="." unique_id=312993265]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+script = ExtResource("5_3kr4w")
+
+[node name="Camera3D" type="Camera3D" parent="PlayerHead" unique_id=1132891381]
+
+[node name="RayCast3D" type="RayCast3D" parent="PlayerHead/Camera3D" unique_id=732577870]
+target_position = Vector3(0, 0, -100)
+
+[node name="AudioTapeList" parent="." unique_id=892980780 instance=ExtResource("6_0cvmj")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1179665455]
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=753261959]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -109.5
+offset_top = -23.0
+offset_right = 109.5
+grow_horizontal = 2
+grow_vertical = 0
+text = "Press Space for clear/restart"
